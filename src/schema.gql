@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateUserInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  create(user: CreateUserInput!): UserEntity!
+  delete(id: String!): String!
+  signIn(signInUserRequestInput: SignInUserRequestInput!): SignInUserResponseObject!
+  update(user: UpdateUserInput!): UserEntity!
+}
+
+type Query {
+  user(id: String!): UserEntity!
+  users: [UserEntity!]!
+}
+
+input SignInUserRequestInput {
+  email: String!
+  password: String!
+}
+
+type SignInUserResponseObject {
+  accessToken: String!
+  user: UserEntity!
+}
+
+input UpdateUserInput {
+  email: String!
+  id: String!
+  password: String!
+}
+
+type UserEntity {
+  email: String!
+  id: String!
+  password(user: UpdateUserInput!): String
+}
